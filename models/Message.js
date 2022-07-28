@@ -1,29 +1,20 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const UserSchema = new Schema({
-    name: {
+const MessageSchema = new Schema({
+    sentBy: {
         type: String,
         required: true
     },
-    username: {
+    sentTo: {
         type: String,
         required: true
     },
-    email: {
+    msgcontent: {
         type: String,
         required: true
     },
-    password: {
-        type: String,
-        required: true
-    },
-    pfpuri: {
-        type: String,
-        required: false,
-        default: "https://avatars.dicebear.com/api/bottts/.svg"
-    },
-    isOnline: {
+    isEdited: {
         type: Boolean,
         default: false
     },
@@ -36,4 +27,4 @@ const UserSchema = new Schema({
 
 
 
-module.exports = mongoose.model('user', UserSchema);
+module.exports = mongoose.model('message', MessageSchema);
